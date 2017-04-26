@@ -206,4 +206,9 @@ public class DefaultDynamicObjectBuilder<P extends MetaDataBuilder<?>> implement
 		getCurrentField().setEnumValues(values.toArray(new String[values.size()]));
 		return this;
 	}
+
+    public PropertyCustomizableMetaDataBuilder<P> setSortKey(String key) {
+        getCurrentField().setSortKey(key);
+        return this;
+    }
 }

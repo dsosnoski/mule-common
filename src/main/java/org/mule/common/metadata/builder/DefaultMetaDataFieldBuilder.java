@@ -30,6 +30,7 @@ public class DefaultMetaDataFieldBuilder implements MetaDataFieldBuilder
     private String exampleString = null;
     private String label;
     private String description;
+    private String sortKey;
 
     DefaultMetaDataFieldBuilder(String name, MetaDataBuilder<?> builder)
     {
@@ -127,6 +128,11 @@ public class DefaultMetaDataFieldBuilder implements MetaDataFieldBuilder
         this.description = description;
     }
 
+    public void setSortKey(String sortKey)
+    {
+        this.sortKey = sortKey;
+    }
+
     public MetaDataField build()
     {
 
@@ -166,6 +172,11 @@ public class DefaultMetaDataFieldBuilder implements MetaDataFieldBuilder
         if (label != null)
         {
             finalFieldProperties.add(new LabelMetaDataProperty(label));
+        }
+        
+        if (sortKey != null)
+        {
+            finalFieldProperties.add(new SortKeyMetaDataProperty(sortKey));
         }
 
         if (enumValues != null)
